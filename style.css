@@ -88,6 +88,25 @@
   --color-nav-bg: rgba(10, 14, 26, 0.95);
 }
 
+/* --- Theme: Tropical Toucan --- */
+[data-theme="tropical"] {
+  --color-bg: #1a2e1a;
+  --color-bg-alt: #1e3820;
+  --color-bg-card: #234228;
+  --color-bg-card-hover: #2a4f30;
+  --color-surface: #2a4e2e;
+  --color-accent: #ff8c00;
+  --color-accent-light: #ffaa33;
+  --color-accent-dark: #d47500;
+  --color-accent-rgb: 255, 140, 0;
+  --color-text: #f0f5e8;
+  --color-text-muted: #a8c4a0;
+  --color-text-dim: #6a8a62;
+  --color-border-light: rgba(255, 255, 255, 0.07);
+  --color-btn-text: #1a2e1a;
+  --color-nav-bg: rgba(26, 46, 26, 0.95);
+}
+
 /* --- Theme: Ivory Classic (Light) --- */
 [data-theme="ivory"] {
   --color-bg: #f5f0e8;
@@ -1448,4 +1467,189 @@ ul {
 
 [data-theme="ivory"] .theme-swatch {
   border-color: rgba(0,0,0,0.15);
+}
+
+/* Tropical swatch */
+.theme-swatch[data-swatch="tropical"] {
+  background: #1a2e1a;
+}
+.theme-swatch[data-swatch="tropical"]::before {
+  background: #ff8c00;
+}
+
+/* ============================================
+   TROPICAL TOUCAN THEME — Overrides & Extras
+   ============================================ */
+
+/* Hero palm-leaf pattern overlay */
+[data-theme="tropical"] .hero-overlay {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M0 40 Q20 20 40 40 Q60 60 80 40' stroke='%2334a853' stroke-opacity='0.06' fill='none' stroke-width='2'/%3E%3Cpath d='M0 60 Q20 40 40 60 Q60 80 80 60' stroke='%2334a853' stroke-opacity='0.04' fill='none' stroke-width='2'/%3E%3Cpath d='M0 20 Q20 0 40 20 Q60 40 80 20' stroke='%2334a853' stroke-opacity='0.04' fill='none' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+/* Floating toucan — appears on hero */
+[data-theme="tropical"] .hero::after {
+  content: '';
+  position: absolute;
+  bottom: 15%;
+  right: 8%;
+  width: 120px;
+  height: 120px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3C!-- body --%3E%3Cellipse cx='60' cy='58' rx='28' ry='32' fill='%23222'/%3E%3C!-- white chest --%3E%3Cellipse cx='60' cy='68' rx='16' ry='20' fill='%23f5f5dc'/%3E%3C!-- head --%3E%3Ccircle cx='60' cy='32' r='18' fill='%23222'/%3E%3C!-- eye ring --%3E%3Ccircle cx='53' cy='30' r='7' fill='%230066cc'/%3E%3Ccircle cx='53' cy='30' r='4' fill='white'/%3E%3Ccircle cx='52' cy='29' r='2' fill='%23111'/%3E%3C!-- beak --%3E%3Cpath d='M38 34 Q15 38 10 42 Q14 44 38 40 Z' fill='%23ff8c00'/%3E%3Cpath d='M38 37 Q18 42 10 42 Q14 44 38 40 Z' fill='%23e07000'/%3E%3Cpath d='M30 36 Q22 39 15 41' stroke='%23cc5500' stroke-width='0.5' fill='none'/%3E%3C!-- beak tip --%3E%3Ccircle cx='12' cy='42' r='2' fill='%23333'/%3E%3C!-- tail feathers --%3E%3Cpath d='M80 50 Q100 35 105 25' stroke='%2334a853' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M78 55 Q98 42 108 32' stroke='%23ff4444' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M82 48 Q100 30 102 20' stroke='%23ffaa00' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C!-- feet --%3E%3Cpath d='M50 88 L46 98 M50 88 L52 98 M70 88 L66 98 M70 88 L72 98' stroke='%23666' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: toucanBob 3s ease-in-out infinite;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes toucanBob {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-15px) rotate(2deg); }
+}
+
+/* Second toucan on the other side, smaller */
+[data-theme="tropical"] .hero::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  width: 70px;
+  height: 70px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cellipse cx='60' cy='58' rx='28' ry='32' fill='%23222'/%3E%3Cellipse cx='60' cy='68' rx='16' ry='20' fill='%23f5f5dc'/%3E%3Ccircle cx='60' cy='32' r='18' fill='%23222'/%3E%3Ccircle cx='67' cy='30' r='7' fill='%230066cc'/%3E%3Ccircle cx='67' cy='30' r='4' fill='white'/%3E%3Ccircle cx='68' cy='29' r='2' fill='%23111'/%3E%3Cpath d='M82 34 Q105 38 110 42 Q106 44 82 40 Z' fill='%23ff8c00'/%3E%3Cpath d='M82 37 Q102 42 110 42 Q106 44 82 40 Z' fill='%23e07000'/%3E%3Ccircle cx='108' cy='42' r='2' fill='%23333'/%3E%3Cpath d='M40 50 Q20 35 15 25' stroke='%2334a853' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M42 55 Q22 42 12 32' stroke='%23ff4444' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M38 48 Q20 30 18 20' stroke='%23ffaa00' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M50 88 L46 98 M50 88 L52 98 M70 88 L66 98 M70 88 L72 98' stroke='%23666' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: toucanBob2 4s ease-in-out infinite 0.5s;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes toucanBob2 {
+  0%, 100% { transform: translateY(0) rotate(3deg) scaleX(-1); }
+  50% { transform: translateY(-10px) rotate(-1deg) scaleX(-1); }
+}
+
+/* Palm leaf corner decorations */
+[data-theme="tropical"] .section-header::before {
+  content: '🌿';
+  display: block;
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+  animation: sway 4s ease-in-out infinite;
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+/* Tropical card borders get a leafy top accent */
+[data-theme="tropical"] .practice-card::before {
+  background: linear-gradient(90deg, #34a853, #ff8c00, #ff4444);
+}
+
+/* Fun gradient on hero title */
+[data-theme="tropical"] .hero-title {
+  background: linear-gradient(135deg, #f0f5e8 0%, #ff8c00 40%, #34a853 70%, #f0f5e8 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Testimonial stars get tropical color */
+[data-theme="tropical"] .testimonial-stars {
+  color: #ff8c00;
+}
+
+/* Add tiny toucan next to logo */
+[data-theme="tropical"] .logo-icon::after {
+  content: ' 🦜';
+  font-size: 1rem;
+}
+
+/* Footer gets jungle vibe */
+[data-theme="tropical"] .footer {
+  border-top: 3px solid;
+  border-image: linear-gradient(90deg, #34a853, #ff8c00, #ff4444, #ff8c00, #34a853) 1;
+}
+
+/* About badge tropical style */
+[data-theme="tropical"] .about-badge {
+  background: linear-gradient(135deg, #ff8c00, #ff6600);
+}
+
+/* CTA banner gets subtle palm pattern */
+[data-theme="tropical"] .cta-banner {
+  border-top: 2px solid #34a853;
+  border-bottom: 2px solid #34a853;
+}
+
+/* Tropical hover: cards get a rainbow left border */
+[data-theme="tropical"] .practice-card:hover,
+[data-theme="tropical"] .team-card:hover {
+  border-left: 3px solid #ff8c00;
+}
+
+/* Fun cursor trail hint */
+[data-theme="tropical"] .btn-primary {
+  background: linear-gradient(135deg, #ff8c00, #ff6600);
+}
+
+[data-theme="tropical"] .btn-primary:hover {
+  background: linear-gradient(135deg, #ffaa33, #ff8c00);
+  box-shadow: 0 4px 25px rgba(255, 140, 0, 0.3);
+}
+
+/* Outline button tropical */
+[data-theme="tropical"] .btn-outline {
+  border-color: rgba(52, 168, 83, 0.4);
+}
+
+[data-theme="tropical"] .btn-outline:hover {
+  border-color: #ff8c00;
+}
+
+/* Flying toucan that crosses the screen periodically */
+[data-theme="tropical"] body::after {
+  content: '🐦';
+  position: fixed;
+  top: 30%;
+  font-size: 2rem;
+  z-index: 9998;
+  pointer-events: none;
+  animation: flyAcross 20s linear infinite 5s;
+  opacity: 0;
+}
+
+@keyframes flyAcross {
+  0% { left: -60px; opacity: 0; transform: scaleX(-1); }
+  2% { opacity: 0.7; }
+  48% { opacity: 0.7; transform: scaleX(-1) translateY(-30px); }
+  50% { left: calc(100% + 60px); opacity: 0; transform: scaleX(-1); }
+  100% { left: calc(100% + 60px); opacity: 0; }
+}
+
+/* Tropical nav CTA */
+[data-theme="tropical"] .nav-cta {
+  background: linear-gradient(135deg, #ff8c00, #ff6600) !important;
+}
+
+[data-theme="tropical"] .nav-cta:hover {
+  background: linear-gradient(135deg, #ffaa33, #ff8c00) !important;
+  box-shadow: 0 4px 20px rgba(255, 140, 0, 0.3) !important;
+}
+
+/* Responsive: hide the big toucan on mobile */
+@media (max-width: 768px) {
+  [data-theme="tropical"] .hero::after {
+    width: 70px;
+    height: 70px;
+    right: 5%;
+    bottom: 10%;
+  }
+  [data-theme="tropical"] .hero::before {
+    display: none;
+  }
 }
