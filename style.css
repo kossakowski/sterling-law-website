@@ -88,7 +88,26 @@
   --color-nav-bg: rgba(10, 14, 26, 0.95);
 }
 
-/* --- Theme: Tropical Toucan --- */
+/* --- Theme: Jungle Toucan (dark green) --- */
+[data-theme="jungle"] {
+  --color-bg: #1a2e1a;
+  --color-bg-alt: #1e3820;
+  --color-bg-card: #234228;
+  --color-bg-card-hover: #2a4f30;
+  --color-surface: #2a4e2e;
+  --color-accent: #ff8c00;
+  --color-accent-light: #ffaa33;
+  --color-accent-dark: #d47500;
+  --color-accent-rgb: 255, 140, 0;
+  --color-text: #f0f5e8;
+  --color-text-muted: #a8c4a0;
+  --color-text-dim: #6a8a62;
+  --color-border-light: rgba(255, 255, 255, 0.07);
+  --color-btn-text: #1a2e1a;
+  --color-nav-bg: rgba(26, 46, 26, 0.95);
+}
+
+/* --- Theme: Tropical Island (bright blue/yellow) --- */
 [data-theme="tropical"] {
   --color-bg: #fdf6e3;
   --color-bg-alt: #f5edd4;
@@ -1472,6 +1491,14 @@ ul {
   border-color: rgba(0,0,0,0.15);
 }
 
+/* Jungle swatch */
+.theme-swatch[data-swatch="jungle"] {
+  background: #1a2e1a;
+}
+.theme-swatch[data-swatch="jungle"]::before {
+  background: #ff8c00;
+}
+
 /* Tropical swatch */
 .theme-swatch[data-swatch="tropical"] {
   background: #0891b2;
@@ -1764,6 +1791,176 @@ ul {
 
 @media (max-width: 480px) {
   [data-theme="tropical"] .hero::before {
+    display: none;
+  }
+}
+
+/* ============================================
+   JUNGLE TOUCAN THEME — Dark Green Overrides
+   ============================================ */
+
+/* Hero overlay: leafy wave pattern */
+[data-theme="jungle"] .hero-overlay {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M0 40 Q20 20 40 40 Q60 60 80 40' stroke='%2334a853' stroke-opacity='0.06' fill='none' stroke-width='2'/%3E%3Cpath d='M0 60 Q20 40 40 60 Q60 80 80 60' stroke='%2334a853' stroke-opacity='0.04' fill='none' stroke-width='2'/%3E%3Cpath d='M0 20 Q20 0 40 20 Q60 40 80 20' stroke='%2334a853' stroke-opacity='0.04' fill='none' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+/* Toucan on right */
+[data-theme="jungle"] .hero::after {
+  content: '';
+  position: absolute;
+  bottom: 15%;
+  right: 8%;
+  width: 120px;
+  height: 120px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cellipse cx='60' cy='58' rx='28' ry='32' fill='%23222'/%3E%3Cellipse cx='60' cy='68' rx='16' ry='20' fill='%23f5f5dc'/%3E%3Ccircle cx='60' cy='32' r='18' fill='%23222'/%3E%3Ccircle cx='53' cy='30' r='7' fill='%230066cc'/%3E%3Ccircle cx='53' cy='30' r='4' fill='white'/%3E%3Ccircle cx='52' cy='29' r='2' fill='%23111'/%3E%3Cpath d='M38 34 Q15 38 10 42 Q14 44 38 40 Z' fill='%23ff8c00'/%3E%3Cpath d='M38 37 Q18 42 10 42 Q14 44 38 40 Z' fill='%23e07000'/%3E%3Ccircle cx='12' cy='42' r='2' fill='%23333'/%3E%3Cpath d='M80 50 Q100 35 105 25' stroke='%2334a853' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M78 55 Q98 42 108 32' stroke='%23ff4444' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M82 48 Q100 30 102 20' stroke='%23ffaa00' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M50 88 L46 98 M50 88 L52 98 M70 88 L66 98 M70 88 L72 98' stroke='%23666' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: jungleBob 3s ease-in-out infinite;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes jungleBob {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-15px) rotate(2deg); }
+}
+
+/* Smaller toucan on left */
+[data-theme="jungle"] .hero::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  width: 70px;
+  height: 70px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cellipse cx='60' cy='58' rx='28' ry='32' fill='%23222'/%3E%3Cellipse cx='60' cy='68' rx='16' ry='20' fill='%23f5f5dc'/%3E%3Ccircle cx='60' cy='32' r='18' fill='%23222'/%3E%3Ccircle cx='67' cy='30' r='7' fill='%230066cc'/%3E%3Ccircle cx='67' cy='30' r='4' fill='white'/%3E%3Ccircle cx='68' cy='29' r='2' fill='%23111'/%3E%3Cpath d='M82 34 Q105 38 110 42 Q106 44 82 40 Z' fill='%23ff8c00'/%3E%3Cpath d='M82 37 Q102 42 110 42 Q106 44 82 40 Z' fill='%23e07000'/%3E%3Ccircle cx='108' cy='42' r='2' fill='%23333'/%3E%3Cpath d='M40 50 Q20 35 15 25' stroke='%2334a853' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M42 55 Q22 42 12 32' stroke='%23ff4444' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M38 48 Q20 30 18 20' stroke='%23ffaa00' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M50 88 L46 98 M50 88 L52 98 M70 88 L66 98 M70 88 L72 98' stroke='%23666' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: jungleBob2 4s ease-in-out infinite 0.5s;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes jungleBob2 {
+  0%, 100% { transform: translateY(0) rotate(3deg) scaleX(-1); }
+  50% { transform: translateY(-10px) rotate(-1deg) scaleX(-1); }
+}
+
+/* Section header leaf */
+[data-theme="jungle"] .section-header::before {
+  content: '🌿';
+  display: block;
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+  animation: sway 4s ease-in-out infinite;
+}
+
+/* Card top accent */
+[data-theme="jungle"] .practice-card::before {
+  background: linear-gradient(90deg, #34a853, #ff8c00, #ff4444);
+}
+
+/* Hero title gradient */
+[data-theme="jungle"] .hero-title {
+  background: linear-gradient(135deg, #f0f5e8 0%, #ff8c00 40%, #34a853 70%, #f0f5e8 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+[data-theme="jungle"] .testimonial-stars {
+  color: #ff8c00;
+}
+
+/* Logo toucan */
+[data-theme="jungle"] .logo-icon::after {
+  content: ' 🦜';
+  font-size: 1rem;
+}
+
+/* Footer jungle gradient */
+[data-theme="jungle"] .footer {
+  border-top: 3px solid;
+  border-image: linear-gradient(90deg, #34a853, #ff8c00, #ff4444, #ff8c00, #34a853) 1;
+}
+
+/* About badge */
+[data-theme="jungle"] .about-badge {
+  background: linear-gradient(135deg, #ff8c00, #ff6600);
+}
+
+/* CTA banner */
+[data-theme="jungle"] .cta-banner {
+  border-top: 2px solid #34a853;
+  border-bottom: 2px solid #34a853;
+}
+
+/* Card hover borders */
+[data-theme="jungle"] .practice-card:hover,
+[data-theme="jungle"] .team-card:hover {
+  border-left: 3px solid #ff8c00;
+}
+
+/* Buttons */
+[data-theme="jungle"] .btn-primary {
+  background: linear-gradient(135deg, #ff8c00, #ff6600);
+}
+
+[data-theme="jungle"] .btn-primary:hover {
+  background: linear-gradient(135deg, #ffaa33, #ff8c00);
+  box-shadow: 0 4px 25px rgba(255, 140, 0, 0.3);
+}
+
+[data-theme="jungle"] .btn-outline {
+  border-color: rgba(52, 168, 83, 0.4);
+}
+
+[data-theme="jungle"] .btn-outline:hover {
+  border-color: #ff8c00;
+}
+
+/* Flying bird */
+[data-theme="jungle"] body::after {
+  content: '🐦';
+  position: fixed;
+  top: 30%;
+  font-size: 2rem;
+  z-index: 9998;
+  pointer-events: none;
+  animation: jungleFly 20s linear infinite 5s;
+  opacity: 0;
+}
+
+@keyframes jungleFly {
+  0% { left: -60px; opacity: 0; transform: scaleX(-1); }
+  2% { opacity: 0.7; }
+  48% { opacity: 0.7; transform: scaleX(-1) translateY(-30px); }
+  50% { left: calc(100% + 60px); opacity: 0; transform: scaleX(-1); }
+  100% { left: calc(100% + 60px); opacity: 0; }
+}
+
+/* Nav CTA */
+[data-theme="jungle"] .nav-cta {
+  background: linear-gradient(135deg, #ff8c00, #ff6600) !important;
+}
+
+[data-theme="jungle"] .nav-cta:hover {
+  background: linear-gradient(135deg, #ffaa33, #ff8c00) !important;
+  box-shadow: 0 4px 20px rgba(255, 140, 0, 0.3) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  [data-theme="jungle"] .hero::after {
+    width: 70px;
+    height: 70px;
+    right: 5%;
+    bottom: 10%;
+  }
+  [data-theme="jungle"] .hero::before {
     display: none;
   }
 }
