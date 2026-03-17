@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeOptions = document.querySelectorAll('.theme-option');
 
   // Apply saved theme on load
-  const savedTheme = localStorage.getItem('sterling-theme') || 'gold';
+  const savedTheme = localStorage.getItem('lk-theme') || 'gold';
   applyTheme(savedTheme);
 
   function applyTheme(theme) {
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     themeOptions.forEach(opt => {
       opt.classList.toggle('active', opt.getAttribute('data-theme') === theme);
     });
-    localStorage.setItem('sterling-theme', theme);
+    localStorage.setItem('lk-theme', theme);
   }
 
   // Toggle panel open/close
