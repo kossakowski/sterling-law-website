@@ -90,21 +90,24 @@
 
 /* --- Theme: Tropical Toucan --- */
 [data-theme="tropical"] {
-  --color-bg: #1a2e1a;
-  --color-bg-alt: #1e3820;
-  --color-bg-card: #234228;
-  --color-bg-card-hover: #2a4f30;
-  --color-surface: #2a4e2e;
-  --color-accent: #ff8c00;
-  --color-accent-light: #ffaa33;
-  --color-accent-dark: #d47500;
-  --color-accent-rgb: 255, 140, 0;
-  --color-text: #f0f5e8;
-  --color-text-muted: #a8c4a0;
-  --color-text-dim: #6a8a62;
-  --color-border-light: rgba(255, 255, 255, 0.07);
-  --color-btn-text: #1a2e1a;
-  --color-nav-bg: rgba(26, 46, 26, 0.95);
+  --color-bg: #fdf6e3;
+  --color-bg-alt: #f5edd4;
+  --color-bg-card: #ffffff;
+  --color-bg-card-hover: #fefcf5;
+  --color-surface: #f0e8cf;
+  --color-accent: #0891b2;
+  --color-accent-light: #22b8cf;
+  --color-accent-dark: #0e7490;
+  --color-accent-rgb: 8, 145, 178;
+  --color-text: #1e3a4a;
+  --color-text-muted: #4a7080;
+  --color-text-dim: #7a9aa8;
+  --color-border-light: rgba(0, 0, 0, 0.07);
+  --color-btn-text: #ffffff;
+  --color-nav-bg: rgba(253, 246, 227, 0.95);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+  --shadow-md: 0 8px 30px rgba(0,0,0,0.07);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.09);
 }
 
 /* --- Theme: Ivory Classic (Light) --- */
@@ -1471,184 +1474,295 @@ ul {
 
 /* Tropical swatch */
 .theme-swatch[data-swatch="tropical"] {
-  background: #1a2e1a;
+  background: #0891b2;
 }
 .theme-swatch[data-swatch="tropical"]::before {
-  background: #ff8c00;
+  background: #f59e0b;
 }
 
 /* ============================================
-   TROPICAL TOUCAN THEME — Overrides & Extras
+   TROPICAL TOUCAN THEME — Island Vacation
    ============================================ */
 
-/* Hero palm-leaf pattern overlay */
-[data-theme="tropical"] .hero-overlay {
+/* --- Hero: ocean-to-sand gradient with wave pattern --- */
+[data-theme="tropical"] .hero {
   background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M0 40 Q20 20 40 40 Q60 60 80 40' stroke='%2334a853' stroke-opacity='0.06' fill='none' stroke-width='2'/%3E%3Cpath d='M0 60 Q20 40 40 60 Q60 80 80 60' stroke='%2334a853' stroke-opacity='0.04' fill='none' stroke-width='2'/%3E%3Cpath d='M0 20 Q20 0 40 20 Q60 40 80 20' stroke='%2334a853' stroke-opacity='0.04' fill='none' stroke-width='2'/%3E%3C/svg%3E");
+    radial-gradient(ellipse at 30% 20%, rgba(8, 145, 178, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(245, 158, 11, 0.10) 0%, transparent 50%),
+    linear-gradient(180deg, #e0f4f8 0%, #fdf6e3 40%, #fef3c7 100%);
 }
 
-/* Floating toucan — appears on hero */
+[data-theme="tropical"] .hero-overlay {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='40' viewBox='0 0 120 40'%3E%3Cpath d='M0 30 Q30 10 60 30 Q90 50 120 30' stroke='%230891b2' stroke-opacity='0.06' fill='none' stroke-width='2'/%3E%3Cpath d='M0 35 Q30 18 60 35 Q90 52 120 35' stroke='%2322b8cf' stroke-opacity='0.04' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");
+}
+
+/* Toucan bobbing on right side of hero */
 [data-theme="tropical"] .hero::after {
   content: '';
   position: absolute;
-  bottom: 15%;
-  right: 8%;
-  width: 120px;
-  height: 120px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3C!-- body --%3E%3Cellipse cx='60' cy='58' rx='28' ry='32' fill='%23222'/%3E%3C!-- white chest --%3E%3Cellipse cx='60' cy='68' rx='16' ry='20' fill='%23f5f5dc'/%3E%3C!-- head --%3E%3Ccircle cx='60' cy='32' r='18' fill='%23222'/%3E%3C!-- eye ring --%3E%3Ccircle cx='53' cy='30' r='7' fill='%230066cc'/%3E%3Ccircle cx='53' cy='30' r='4' fill='white'/%3E%3Ccircle cx='52' cy='29' r='2' fill='%23111'/%3E%3C!-- beak --%3E%3Cpath d='M38 34 Q15 38 10 42 Q14 44 38 40 Z' fill='%23ff8c00'/%3E%3Cpath d='M38 37 Q18 42 10 42 Q14 44 38 40 Z' fill='%23e07000'/%3E%3Cpath d='M30 36 Q22 39 15 41' stroke='%23cc5500' stroke-width='0.5' fill='none'/%3E%3C!-- beak tip --%3E%3Ccircle cx='12' cy='42' r='2' fill='%23333'/%3E%3C!-- tail feathers --%3E%3Cpath d='M80 50 Q100 35 105 25' stroke='%2334a853' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M78 55 Q98 42 108 32' stroke='%23ff4444' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M82 48 Q100 30 102 20' stroke='%23ffaa00' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C!-- feet --%3E%3Cpath d='M50 88 L46 98 M50 88 L52 98 M70 88 L66 98 M70 88 L72 98' stroke='%23666' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  bottom: 12%;
+  right: 6%;
+  width: 140px;
+  height: 140px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140'%3E%3C!-- body --%3E%3Cellipse cx='70' cy='68' rx='30' ry='35' fill='%23262626'/%3E%3C!-- white chest --%3E%3Cellipse cx='70' cy='78' rx='18' ry='22' fill='%23fffef5'/%3E%3C!-- yellow chest patch --%3E%3Cellipse cx='70' cy='86' rx='12' ry='12' fill='%23f59e0b' opacity='0.5'/%3E%3C!-- head --%3E%3Ccircle cx='70' cy='38' r='20' fill='%23262626'/%3E%3C!-- eye ring --%3E%3Ccircle cx='62' cy='35' r='8' fill='%230891b2'/%3E%3Ccircle cx='62' cy='35' r='5' fill='white'/%3E%3Ccircle cx='61' cy='34' r='2.5' fill='%23111'/%3E%3C!-- eye highlight --%3E%3Ccircle cx='60' cy='33' r='1' fill='white'/%3E%3C!-- beak upper --%3E%3Cpath d='M46 38 Q20 42 12 48 Q18 50 46 44 Z' fill='%23f59e0b'/%3E%3C!-- beak lower --%3E%3Cpath d='M46 41 Q22 47 12 48 Q18 50 46 44 Z' fill='%23ea580c'/%3E%3C!-- beak ridge --%3E%3Cpath d='M40 39 Q28 43 18 47' stroke='%23d97706' stroke-width='0.7' fill='none'/%3E%3C!-- beak green stripe --%3E%3Cpath d='M44 40 Q30 44 16 48' stroke='%2316a34a' stroke-width='1.5' fill='none' opacity='0.6'/%3E%3C!-- beak tip --%3E%3Ccircle cx='14' cy='48' r='2.5' fill='%23333'/%3E%3C!-- tail --%3E%3Cpath d='M92 58 Q114 40 118 28' stroke='%230891b2' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M90 64 Q112 50 120 38' stroke='%23f59e0b' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M94 54 Q112 34 115 22' stroke='%23dc2626' stroke-width='3.5' fill='none' stroke-linecap='round'/%3E%3C!-- feet --%3E%3Cpath d='M58 100 L54 112 M58 100 L60 112 M82 100 L78 112 M82 100 L84 112' stroke='%23888' stroke-width='2.5' stroke-linecap='round'/%3E%3C!-- branch --%3E%3Cpath d='M30 112 Q70 106 110 112' stroke='%238B6914' stroke-width='5' stroke-linecap='round' fill='none'/%3E%3Cpath d='M25 111 Q32 108 30 112' stroke='%236d8a3a' stroke-width='3' fill='%236d8a3a' opacity='0.7'/%3E%3Cpath d='M112 111 Q106 108 110 112' stroke='%236d8a3a' stroke-width='3' fill='%236d8a3a' opacity='0.7'/%3E%3C/svg%3E");
   background-size: contain;
   background-repeat: no-repeat;
   animation: toucanBob 3s ease-in-out infinite;
-  opacity: 0.6;
+  opacity: 0.85;
   pointer-events: none;
   z-index: 1;
 }
 
 @keyframes toucanBob {
-  0%, 100% { transform: translateY(0) rotate(-2deg); }
-  50% { transform: translateY(-15px) rotate(2deg); }
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  33% { transform: translateY(-12px) rotate(1.5deg); }
+  66% { transform: translateY(-4px) rotate(-0.5deg); }
 }
 
-/* Second toucan on the other side, smaller */
+/* Palm tree on left side of hero */
 [data-theme="tropical"] .hero::before {
   content: '';
   position: absolute;
-  top: 20%;
-  left: 5%;
-  width: 70px;
-  height: 70px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cellipse cx='60' cy='58' rx='28' ry='32' fill='%23222'/%3E%3Cellipse cx='60' cy='68' rx='16' ry='20' fill='%23f5f5dc'/%3E%3Ccircle cx='60' cy='32' r='18' fill='%23222'/%3E%3Ccircle cx='67' cy='30' r='7' fill='%230066cc'/%3E%3Ccircle cx='67' cy='30' r='4' fill='white'/%3E%3Ccircle cx='68' cy='29' r='2' fill='%23111'/%3E%3Cpath d='M82 34 Q105 38 110 42 Q106 44 82 40 Z' fill='%23ff8c00'/%3E%3Cpath d='M82 37 Q102 42 110 42 Q106 44 82 40 Z' fill='%23e07000'/%3E%3Ccircle cx='108' cy='42' r='2' fill='%23333'/%3E%3Cpath d='M40 50 Q20 35 15 25' stroke='%2334a853' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M42 55 Q22 42 12 32' stroke='%23ff4444' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M38 48 Q20 30 18 20' stroke='%23ffaa00' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M50 88 L46 98 M50 88 L52 98 M70 88 L66 98 M70 88 L72 98' stroke='%23666' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  bottom: 0;
+  left: 3%;
+  width: 130px;
+  height: 280px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 280'%3E%3C!-- trunk --%3E%3Cpath d='M65 280 Q60 200 68 120 Q70 100 65 80' stroke='%238B6914' stroke-width='10' fill='none' stroke-linecap='round'/%3E%3Cpath d='M65 280 Q60 200 68 120 Q70 100 65 80' stroke='%23a67c1a' stroke-width='6' fill='none' stroke-linecap='round' opacity='0.5'/%3E%3C!-- trunk segments --%3E%3Cpath d='M60 260 Q65 258 70 260 M59 240 Q65 237 71 240 M59 220 Q65 217 71 220 M60 200 Q65 197 70 200 M60 180 Q66 177 70 180 M61 160 Q66 157 70 160 M62 140 Q67 137 70 140' stroke='%237a5d10' stroke-width='1' fill='none' opacity='0.5'/%3E%3C!-- fronds --%3E%3Cpath d='M65 80 Q30 40 5 50' stroke='%2316a34a' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M65 80 Q35 45 10 55' stroke='%2322c55e' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M65 80 Q100 40 125 50' stroke='%2316a34a' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M65 80 Q95 42 120 55' stroke='%2322c55e' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M65 80 Q55 20 40 5' stroke='%2316a34a' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M65 80 Q58 25 45 10' stroke='%2322c55e' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M65 80 Q75 20 90 5' stroke='%2316a34a' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M65 80 Q72 25 85 10' stroke='%2322c55e' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3Cpath d='M65 80 Q65 30 65 0' stroke='%2316a34a' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C!-- leaf details --%3E%3Cpath d='M50 60 Q35 48 15 52' stroke='%2315803d' stroke-width='0.8' fill='none' opacity='0.6'/%3E%3Cpath d='M80 60 Q95 48 115 52' stroke='%2315803d' stroke-width='0.8' fill='none' opacity='0.6'/%3E%3C!-- coconuts --%3E%3Ccircle cx='60' cy='82' r='5' fill='%238B6914'/%3E%3Ccircle cx='70' cy='84' r='4.5' fill='%237a5d10'/%3E%3Ccircle cx='65' cy='78' r='4' fill='%23996b15'/%3E%3C/svg%3E");
   background-size: contain;
   background-repeat: no-repeat;
-  animation: toucanBob2 4s ease-in-out infinite 0.5s;
-  opacity: 0.35;
+  background-position: bottom center;
+  animation: palmSway 6s ease-in-out infinite;
+  opacity: 0.55;
   pointer-events: none;
   z-index: 1;
+  transform-origin: bottom center;
 }
 
-@keyframes toucanBob2 {
-  0%, 100% { transform: translateY(0) rotate(3deg) scaleX(-1); }
-  50% { transform: translateY(-10px) rotate(-1deg) scaleX(-1); }
+@keyframes palmSway {
+  0%, 100% { transform: rotate(-1.5deg); }
+  50% { transform: rotate(1.5deg); }
 }
 
-/* Palm leaf corner decorations */
-[data-theme="tropical"] .section-header::before {
-  content: '🌿';
-  display: block;
-  font-size: 1.6rem;
-  margin-bottom: 8px;
-  animation: sway 4s ease-in-out infinite;
-}
-
-@keyframes sway {
-  0%, 100% { transform: rotate(-5deg); }
-  50% { transform: rotate(5deg); }
-}
-
-/* Tropical card borders get a leafy top accent */
-[data-theme="tropical"] .practice-card::before {
-  background: linear-gradient(90deg, #34a853, #ff8c00, #ff4444);
-}
-
-/* Fun gradient on hero title */
+/* --- Vibrant title gradient --- */
 [data-theme="tropical"] .hero-title {
-  background: linear-gradient(135deg, #f0f5e8 0%, #ff8c00 40%, #34a853 70%, #f0f5e8 100%);
-  background-size: 200% auto;
+  background: linear-gradient(135deg, #0891b2 0%, #f59e0b 35%, #ef4444 55%, #0891b2 80%, #f59e0b 100%);
+  background-size: 300% auto;
   -webkit-background-clip: text;
   background-clip: text;
 }
 
-/* Testimonial stars get tropical color */
-[data-theme="tropical"] .testimonial-stars {
-  color: #ff8c00;
+/* --- Section headers: palm decoration --- */
+[data-theme="tropical"] .section-header::before {
+  content: '🌴';
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  animation: sway 5s ease-in-out infinite;
 }
 
-/* Add tiny toucan next to logo */
-[data-theme="tropical"] .logo-icon::after {
-  content: ' 🦜';
-  font-size: 1rem;
+@keyframes sway {
+  0%, 100% { transform: rotate(-4deg); }
+  50% { transform: rotate(4deg); }
 }
 
-/* Footer gets jungle vibe */
-[data-theme="tropical"] .footer {
-  border-top: 3px solid;
-  border-image: linear-gradient(90deg, #34a853, #ff8c00, #ff4444, #ff8c00, #34a853) 1;
+/* --- Section label tropical color --- */
+[data-theme="tropical"] .section-label {
+  color: #ea580c;
 }
 
-/* About badge tropical style */
-[data-theme="tropical"] .about-badge {
-  background: linear-gradient(135deg, #ff8c00, #ff6600);
+/* --- Practice card top bar: sunset gradient --- */
+[data-theme="tropical"] .practice-card::before {
+  background: linear-gradient(90deg, #0891b2, #22d3ee, #f59e0b, #ef4444);
 }
 
-/* CTA banner gets subtle palm pattern */
-[data-theme="tropical"] .cta-banner {
-  border-top: 2px solid #34a853;
-  border-bottom: 2px solid #34a853;
+[data-theme="tropical"] .practice-card:hover {
+  border-color: rgba(8, 145, 178, 0.3);
+  box-shadow: 0 8px 30px rgba(8, 145, 178, 0.1);
 }
 
-/* Tropical hover: cards get a rainbow left border */
-[data-theme="tropical"] .practice-card:hover,
+/* --- Team card hover --- */
 [data-theme="tropical"] .team-card:hover {
-  border-left: 3px solid #ff8c00;
+  border-color: rgba(245, 158, 11, 0.3);
+  box-shadow: 0 8px 30px rgba(245, 158, 11, 0.1);
 }
 
-/* Fun cursor trail hint */
+/* --- Buttons: ocean blue gradient --- */
 [data-theme="tropical"] .btn-primary {
-  background: linear-gradient(135deg, #ff8c00, #ff6600);
+  background: linear-gradient(135deg, #0891b2, #0e7490);
 }
 
 [data-theme="tropical"] .btn-primary:hover {
-  background: linear-gradient(135deg, #ffaa33, #ff8c00);
-  box-shadow: 0 4px 25px rgba(255, 140, 0, 0.3);
+  background: linear-gradient(135deg, #22b8cf, #0891b2);
+  box-shadow: 0 4px 25px rgba(8, 145, 178, 0.3);
 }
 
-/* Outline button tropical */
 [data-theme="tropical"] .btn-outline {
-  border-color: rgba(52, 168, 83, 0.4);
+  border-color: rgba(8, 145, 178, 0.3);
+  color: var(--color-text);
 }
 
 [data-theme="tropical"] .btn-outline:hover {
-  border-color: #ff8c00;
+  border-color: #f59e0b;
+  color: #ea580c;
 }
 
-/* Flying toucan that crosses the screen periodically */
+/* --- Nav CTA: warm yellow --- */
+[data-theme="tropical"] .nav-cta {
+  background: linear-gradient(135deg, #f59e0b, #ea580c) !important;
+  color: #fff !important;
+}
+
+[data-theme="tropical"] .nav-cta:hover {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b) !important;
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3) !important;
+}
+
+/* --- Testimonial stars: sunshine yellow --- */
+[data-theme="tropical"] .testimonial-stars {
+  color: #f59e0b;
+}
+
+/* --- Logo toucan decoration --- */
+[data-theme="tropical"] .logo-icon {
+  font-size: 0;
+}
+[data-theme="tropical"] .logo-icon::before {
+  content: '🦜';
+  font-size: 1.6rem;
+}
+
+/* --- About badge: ocean-to-yellow gradient --- */
+[data-theme="tropical"] .about-badge {
+  background: linear-gradient(135deg, #0891b2, #0e7490);
+  color: #fff;
+}
+
+/* --- CTA banner: subtle ocean gradient --- */
+[data-theme="tropical"] .cta-banner {
+  background:
+    radial-gradient(ellipse at center, rgba(8, 145, 178, 0.06) 0%, transparent 60%),
+    var(--color-bg);
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, #0891b2, #f59e0b, #ef4444, #f59e0b, #0891b2) 1;
+}
+
+/* --- Footer: sunset gradient top border --- */
+[data-theme="tropical"] .footer {
+  border-top: 3px solid transparent;
+  border-image: linear-gradient(90deg, #0891b2, #22d3ee, #f59e0b, #ef4444, #f59e0b, #22d3ee, #0891b2) 1;
+}
+
+/* --- Feature/contact icons: ocean tint --- */
+[data-theme="tropical"] .feature-icon,
+[data-theme="tropical"] .contact-icon {
+  background: rgba(8, 145, 178, 0.1);
+}
+
+[data-theme="tropical"] .practice-icon {
+  background: rgba(8, 145, 178, 0.08);
+}
+
+/* --- Team social: warm accent --- */
+[data-theme="tropical"] .team-social a {
+  background: rgba(245, 158, 11, 0.1);
+  color: #ea580c;
+}
+
+[data-theme="tropical"] .team-social a:hover {
+  background: #f59e0b;
+  color: #fff;
+}
+
+/* --- Testimonial card: subtle sandy border --- */
+[data-theme="tropical"] .testimonial-card {
+  border-color: rgba(245, 158, 11, 0.15);
+}
+
+/* --- Navbar toggle: dark for light bg --- */
+[data-theme="tropical"] .nav-toggle span {
+  background: var(--color-text);
+}
+
+/* --- Form focus: ocean ring --- */
+[data-theme="tropical"] .form-group input:focus,
+[data-theme="tropical"] .form-group select:focus,
+[data-theme="tropical"] .form-group textarea:focus {
+  border-color: #0891b2;
+  box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.12);
+}
+
+/* --- Stat numbers: sunset orange --- */
+[data-theme="tropical"] .stat-number,
+[data-theme="tropical"] .stat-suffix {
+  color: #ea580c;
+}
+
+/* --- Flying toucan across screen --- */
 [data-theme="tropical"] body::after {
-  content: '🐦';
+  content: '🦜';
   position: fixed;
-  top: 30%;
-  font-size: 2rem;
+  top: 25%;
+  font-size: 2.5rem;
   z-index: 9998;
   pointer-events: none;
-  animation: flyAcross 20s linear infinite 5s;
+  animation: flyAcross 22s linear infinite 8s;
   opacity: 0;
 }
 
 @keyframes flyAcross {
-  0% { left: -60px; opacity: 0; transform: scaleX(-1); }
-  2% { opacity: 0.7; }
-  48% { opacity: 0.7; transform: scaleX(-1) translateY(-30px); }
-  50% { left: calc(100% + 60px); opacity: 0; transform: scaleX(-1); }
-  100% { left: calc(100% + 60px); opacity: 0; }
+  0% { left: -80px; opacity: 0; transform: scaleX(-1) rotate(0deg); }
+  3% { opacity: 0.8; }
+  25% { transform: scaleX(-1) translateY(-25px) rotate(-3deg); }
+  48% { opacity: 0.8; transform: scaleX(-1) translateY(10px) rotate(2deg); }
+  50% { left: calc(100% + 80px); opacity: 0; }
+  100% { left: calc(100% + 80px); opacity: 0; }
 }
 
-/* Tropical nav CTA */
-[data-theme="tropical"] .nav-cta {
-  background: linear-gradient(135deg, #ff8c00, #ff6600) !important;
+/* --- Dots & nav buttons --- */
+[data-theme="tropical"] .testimonial-dot.active {
+  background: #f59e0b;
 }
 
-[data-theme="tropical"] .nav-cta:hover {
-  background: linear-gradient(135deg, #ffaa33, #ff8c00) !important;
-  box-shadow: 0 4px 20px rgba(255, 140, 0, 0.3) !important;
+[data-theme="tropical"] .testimonial-btn:hover {
+  border-color: #0891b2;
+  color: #0891b2;
 }
 
-/* Responsive: hide the big toucan on mobile */
+/* --- Theme swatch border for light theme --- */
+[data-theme="tropical"] .theme-swatch {
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+/* --- Success icon --- */
+[data-theme="tropical"] .success-icon {
+  background: rgba(8, 145, 178, 0.12);
+  color: #0891b2;
+}
+
+/* --- Hours emergency: warm color --- */
+[data-theme="tropical"] .hours-list .emergency {
+  color: #ea580c;
+}
+
+/* --- Responsive --- */
 @media (max-width: 768px) {
   [data-theme="tropical"] .hero::after {
-    width: 70px;
-    height: 70px;
-    right: 5%;
-    bottom: 10%;
+    width: 80px;
+    height: 80px;
+    right: 3%;
+    bottom: 8%;
   }
+  [data-theme="tropical"] .hero::before {
+    width: 70px;
+    height: 150px;
+    left: 1%;
+    opacity: 0.35;
+  }
+}
+
+@media (max-width: 480px) {
   [data-theme="tropical"] .hero::before {
     display: none;
   }
