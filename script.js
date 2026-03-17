@@ -4,6 +4,47 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // --- Theme Switcher ---
+  const themeSwitcher = document.getElementById('themeSwitcher');
+  const themeToggleBtn = document.getElementById('themeToggleBtn');
+  const themeOptions = document.querySelectorAll('.theme-option');
+
+  // Apply saved theme on load
+  const savedTheme = localStorage.getItem('sterling-theme') || 'gold';
+  applyTheme(savedTheme);
+
+  function applyTheme(theme) {
+    if (theme === 'gold') {
+      document.documentElement.removeAttribute('data-theme');
+    } else {
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+    themeOptions.forEach(opt => {
+      opt.classList.toggle('active', opt.getAttribute('data-theme') === theme);
+    });
+    localStorage.setItem('sterling-theme', theme);
+  }
+
+  // Toggle panel open/close
+  themeToggleBtn.addEventListener('click', () => {
+    themeSwitcher.classList.toggle('open');
+  });
+
+  // Select a theme
+  themeOptions.forEach(option => {
+    option.addEventListener('click', () => {
+      const theme = option.getAttribute('data-theme');
+      applyTheme(theme);
+    });
+  });
+
+  // Close panel when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!themeSwitcher.contains(e.target)) {
+      themeSwitcher.classList.remove('open');
+    }
+  });
+
   // --- Navbar scroll effect ---
   const navbar = document.getElementById('navbar');
   const onScroll = () => {
@@ -209,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
         navAnchors.forEach(a => {
           a.style.color = '';
           if (a.getAttribute('href') === `#${id}`) {
-            a.style.color = 'var(--color-gold)';
+            a.style.color = 'var(--color-accent)';
           }
         });
       }
